@@ -56,12 +56,10 @@ namespace NimbusSharp
             }
 
             var client = new HttpClient();
-            var httpContent = new HttpRequestMessage(HttpMethod.Post, "https://ws.nimbusprocessing.com/testgate.php")
+            var httpContent = new HttpRequestMessage(HttpMethod.Post, "http://ws.giftcardlive.com/testgate.php")
             {
                 Content = new FormUrlEncodedContent(data)
             };
-            ServicePointManager.ServerCertificateValidationCallback +=
-    (sender, cert, chain, sslPolicyErrors) => true;
             var response = await client.SendAsync(httpContent);
             var result = await response.Content.ReadAsStringAsync();
 
