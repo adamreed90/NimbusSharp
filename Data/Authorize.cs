@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NimbusSharp.Data
 {
     [Function("authorize")]
-    class Authorize : NimbusFunction
+    public class Authorize : NimbusFunction
     {
         [Property("amt")]
         public decimal Amount { get; set; }
@@ -15,6 +15,13 @@ namespace NimbusSharp.Data
         public string OrderId { get; set; }
         [Property("cUnum")]
         public string EmployeeId{ get; set; }
-
+        [Property("cd")]
+        public string Description { get; set; }
+        [Property("ct")]
+        public string EmployeeTeam { get; set; }
+        [Property("en")]
+        public string EmployeeName { get; set; }
+        [Property("ip")]
+        public string IpAddress { get; set; }
     }
 }

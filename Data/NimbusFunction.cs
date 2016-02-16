@@ -8,32 +8,43 @@ namespace NimbusSharp.Data
 {
     public class NimbusFunction
     {
-        //tst - 0 = LIVE / 1 = TEST
-        [Function("tst")]
+        [Property("Cmn")]
+        public string MerchantNumber { get; set; }
+        /// <summary>
+        /// This places the system into Test Mode, 0 = Live, 1 = Test.
+        /// </summary>
+        [Property("tst")]
         public bool Test { get; set; }
-        //lat
+        /// <summary>
+        /// This is the GPS latitude where the transaction is taking place.
+        /// </summary>
+        [Property("lat")]
         public double Lattitude { get; set; }
-        //lon
+        /// <summary>
+        /// This is the GPS longitude where the transaction is taking place.
+        /// </summary>
+        [Property("lon")]
         public double Longitude { get; set; }
-
-        //man - 1 = SWIPED / 2 = KEYED
+        /// <summary>
+        /// This tells the system if the card is swiped or keyed; (1=Swiped 2=Keyed)
+        /// </summary>
+        [Property("man")]
         public bool Manual { get; set; }
-
-
+        
         //SWIPED
-        //td - 
+        [Property("td")]
         public string TrackData { get; set; }
 
         //KEYED
-        //co - 
+        [Property("co")]
         public string CardholderName { get; set; }
-        //pan - 
+        [Property("can")]
         public string CardNumber { get; set; }
-        //exp - 
+        [Property("exp")]
         public string CardExpiration { get; set; }
-        //cvv - 
+        [Property("cvv")]
         public string SecurityCode { get; set; }
-        //zc - 
+        [Property("zc")]
         public string ZipCode { get; set; }
 
     }
