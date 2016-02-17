@@ -1,7 +1,7 @@
 ﻿namespace NimbusSharp.Data
 {
     [Function("authcap")]
-    public class AuthorizeCapture
+    public class AuthorizeCapture : NimbusFunction
     {
         [Property("amt", true)]
         public decimal Amount { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NimbusSharp.Data
 {
     [Function("returnunliked")]
-    class ReturnUnlinked
+    class ReturnUnlinked : NimbusFunction
     {
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NimbusSharp.Data
 {
     [Function("cash")]
-    class Cash
+    class Cash : NimbusFunction
     {
     }
 }

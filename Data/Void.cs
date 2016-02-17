@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NimbusSharp.Data
 {
     [Function("void")]
-    class Void
+    class Void : NimbusFunction
     {
     }
 }

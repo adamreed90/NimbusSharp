@@ -23,25 +23,7 @@ namespace NimbusSharp
         {
             function.MerchantNumber = _merchantId;
 
-
-            //Check for Required Data
-            var properties = function.GetType().GetRuntimeProperties().ToDictionary(a => a.Name, a => a);
-            // ReSharper disable once LoopCanBePartlyConvertedToQuery
-            foreach (var property in properties)
-            {
-                var prop = properties.FirstOrDefault(f => f.Key == property.Key).Value;
-
-                if (!prop.GetCustomAttributes(true).Cast<Property>().FirstOrDefault().Required) continue;
-
-                var propInfo = function.GetType().GetRuntimeProperties().First(pi => pi.Name == property.Key);
-                var propValue = propInfo.GetValue(function);
-
-                if (propValue == null)
-                {
-                    throw new Exception(
-                        $"[NimbusSharp] [Execute] The Property : {property.Key} is required, please populate this variable and try again.");
-                }
-            }
+            CheckRequiredProperties(function);
 
             var functionString =
                 function.GetType().GetTypeInfo().GetCustomAttributes(true).Cast<Function>().FirstOrDefault()?.Name;
@@ -83,13 +65,40 @@ namespace NimbusSharp
                 }
             }
             var client = new HttpClient();
-            var httpContent = new HttpRequestMessage(HttpMethod.Post, "https://ws.giftcardlive.com/testgate.php")
+            var httpContent = new HttpRequestMessage(HttpMethod.Post, "https://ws.nimbusprocessing.com/gate.php")
             {
                 Content = new FormUrlEncodedContent(data)
             };
             var response = await client.SendAsync(httpContent);
             var result = await response.Content.ReadAsStringAsync();
             return result;
+        }
+
+
+
+
+
+
+        private static void CheckRequiredProperties(NimbusFunction function)
+        {
+            //Check for Required Data
+            var properties = function.GetType().GetRuntimeProperties().ToDictionary(a => a.Name, a => a);
+            // ReSharper disable once LoopCanBePartlyConvertedToQuery
+            foreach (var property in properties)
+            {
+                var prop = properties.FirstOrDefault(f => f.Key == property.Key).Value;
+
+                if (!prop.GetCustomAttributes(true).Cast<Property>().FirstOrDefault().Required) continue;
+
+                var propInfo = function.GetType().GetRuntimeProperties().First(pi => pi.Name == property.Key);
+                var propValue = propInfo.GetValue(function);
+
+                if (propValue == null)
+                {
+                    throw new Exception(
+                        $"[NimbusSharp] [Execute] The Property : {property.Key} is required, please populate this variable and try again.");
+                }
+            }
         }
 
         private static string GetPropertyFunctionString(NimbusFunction func, MemberInfo property)

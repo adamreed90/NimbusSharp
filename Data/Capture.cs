@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NimbusSharp.Data
 {
     [Function("capture")]
-    public class Capture
+    public class Capture : NimbusFunction
     {
         [Property("transID", true)]
         public string TransactionId { get; set; }
