@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 namespace NimbusSharp.Data
 {
     [Function("capture")]
-    class Capture
+    public class Capture
     {
+        [Property("transID", true)]
+        public string TransactionId { get; set; }
+        [Property("amt", true)]
+        public decimal Amount { get; set; }
+
     }
 }
