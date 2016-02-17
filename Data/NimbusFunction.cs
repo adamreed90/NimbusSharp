@@ -32,10 +32,11 @@
         //KEYED
         [Property("co", true)]
         public string CardholderName { get; set; }
-        [Property("can", true)]
+        [Property("pan", true)]
         public string CardNumber { get; set; }
         [Property("exp", true)]
         public string CardExpiration { get; set; }
+        //TODO: Ensure date is current or in the future, and that it is in the format of MMYY
         [Property("cvv", true)]
         public string SecurityCode { get; set; }
         [Property("zc", true)]

@@ -65,7 +65,7 @@ namespace NimbusSharp
                 }
             }
             var client = new HttpClient();
-            var httpContent = new HttpRequestMessage(HttpMethod.Post, "https://ws.nimbusprocessing.com/gate.php")
+            var httpContent = new HttpRequestMessage(HttpMethod.Post, "http://ws.nimbusprocessing.com/testgate.php ")
             {
                 Content = new FormUrlEncodedContent(data)
             };
