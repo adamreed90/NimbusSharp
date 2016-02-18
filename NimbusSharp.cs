@@ -12,17 +12,17 @@ namespace NimbusSharp
     public class NimbusSharp
     {
         private readonly string _merchantId;
+        private readonly string _apiKey;
 
-        public NimbusSharp(string merchantId)
+        public NimbusSharp(string merchantId, string apiKey)
         {
             _merchantId = merchantId;
+            _apiKey = apiKey;
         }
 
 
         public async Task<string> Execute(NimbusFunction function)
         {
-            function.MerchantNumber = _merchantId;
-
             CheckRequiredProperties(function);
 
             var functionString =
@@ -33,7 +33,9 @@ namespace NimbusSharp
 
             var data = new List<KeyValuePair<string, string>>
             {
-                new KeyValuePair<string, string>("func", functionString)
+                new KeyValuePair<string, string>("func", functionString),
+                new KeyValuePair<string, string>("Cmn", _merchantId),
+                new KeyValuePair<string, string>("key", _apiKey)
             };
             foreach (var propertyName in propertyNames)
             {

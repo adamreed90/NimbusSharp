@@ -2,8 +2,6 @@
 {
     public class NimbusFunction
     {
-        [Property("Cmn", true)]
-        public string MerchantNumber { get; set; }
         /// <summary>
         /// This places the system into Test Mode, 0 = Live, 1 = Test.
         /// </summary>
