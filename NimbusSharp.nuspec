@@ -6,11 +6,11 @@
     <title>$title$</title>
     <authors>Adam E. Reed</authors>
     <owners>Adam E. Reed</owners>
-    <licenseUrl></licenseUrl>
+    <licenseUrl>https://github.com/adamreed90/NimbusSharp/wiki</licenseUrl>
     <projectUrl>https://github.com/adamreed90/NimbusSharp</projectUrl>
-    <iconUrl></iconUrl>
+    <iconUrl>https://github.com/adamreed90/NimbusSharp</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>A drag and drop library for Nimbus Processing, .NET Universal PCL</description>
     <releaseNotes>First Release Package.</releaseNotes>
     <copyright>Copyright ©2016 Adam E. Reed. All rights reserved.</copyright>
     <tags>nimbus nimbusprocessing payment processing</tags>
