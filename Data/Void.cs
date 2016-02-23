@@ -17,8 +17,13 @@ namespace NimbusSharp.Data
         public string EmployeeTeam { get; set; }
         [Property("in", false)]
         public string InvoiceId { get; set; }
-
-
-
+        [Property("en", false)]
+        public string EmployeeName { get; set; }
+        [Property("cUnum", true)]
+        public string EmployeeId { get; set; }
+        [Property("amt", true)]
+        public decimal Amount{ get; set; }
+        [Property("ip", false)]
+        public string IpAddress { get; set; }
     }
 }

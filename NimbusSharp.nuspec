@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/adamreed90/NimbusSharp</projectUrl>
     <iconUrl>https://github.com/adamreed90/NimbusSharp</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>A drag and drop library for Nimbus Processing, .NET Universal PCL</description>
+    <description>NimbusSharp is a .NET Universal Library for use with Nimbus Processing</description>
     <releaseNotes>First Release Package.</releaseNotes>
     <copyright>Copyright ©2016 Adam E. Reed. All rights reserved.</copyright>
     <tags>nimbus nimbusprocessing payment processing</tags>

@@ -19,9 +19,8 @@ namespace NimbusSharp
             _merchantId = merchantId;
             _apiKey = apiKey;
         }
-
-
-        public async Task<string> Execute(NimbusFunction function)
+        
+        public async Task<NimbusResult> Execute(NimbusFunction function)
         {
             CheckRequiredProperties(function);
 
@@ -73,13 +72,8 @@ namespace NimbusSharp
             };
             var response = await client.SendAsync(httpContent);
             var result = await response.Content.ReadAsStringAsync();
-            return result;
+            return new NimbusResult(result);
         }
-
-
-
-
-
 
         private static void CheckRequiredProperties(NimbusFunction function)
         {
